@@ -1,0 +1,22 @@
+<!-- frontend/index.html -->
+<!DOCTYPE html>
+<html>
+<head><title>Task Manager</title></head>
+<body>
+  <h1>Tasks</h1>
+  <ul id="task-list"></ul>
+
+  <script>
+    fetch("/api/tasks")
+      .then(res => res.json())
+      .then(tasks => {
+        const list = document.getElementById('task-list');
+        tasks.forEach(task => {
+          const li = document.createElement('li');
+          li.textContent = task.name + (task.done ? " ✅" : " ❌");
+          list.appendChild(li);
+        });
+      });
+  </script>
+</body>
+</html>
