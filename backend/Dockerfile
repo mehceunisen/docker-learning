@@ -16,4 +16,9 @@ RUN chmod +x wait-for-db.sh
 RUN apk add --no-cache curl
 RUN apk add --no-cache postgresql-client
 
+EXPOSE 8080
+
+RUN addgroup -S app && adduser -S -G app app
+USER app
+
 CMD ["./wait-for-db.sh", "db", "./server"]
