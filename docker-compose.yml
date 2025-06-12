@@ -26,12 +26,14 @@ services:
     image: nginx:alpine
     volumes:
       - ./frontend:/usr/share/nginx/html:ro
-      #- ./nginx/reverse-proxy.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/reverse-proxy.conf:/etc/nginx/nginx.conf:ro
     ports:
-    - "8081:80"
+    - "80:80"
     depends_on:
       backend:
-        condition: service_healthy 
+        condition: service_healthy
+    networks:
+      - tasknet
   db:
     image: postgres:15-alpine
     environment:

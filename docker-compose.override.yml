@@ -1,8 +1,12 @@
-version: "3.8"
-
-services:
-  backend:
-    volumes:
-      - ./backend:/app 
-    working_dir: /app
-    command: /app/server 
+#version: "3.8"
+#
+#services:
+#  backend:
+#    volumes:
+#      - ./backend:/app  # assuming your backend source is here
+#    environment:
+#      - ENV=development
+#    working_dir: /app
+#    command:
+#      /app/server
+#
